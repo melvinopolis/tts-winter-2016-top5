@@ -12,7 +12,12 @@
   <% @songs.each do |song| %>
     <div class="col-md-6">
       <div class="well">
-        <h2><%= link_to song.name, song %></h2>
+        <h2>
+          <%= link_to song.name, song %>
+          <% if song.video.presence %>
+            <small><i class="glyphicon glyphicon-play"></i></small>
+          <% end %>
+        </h2>
         <h4><%= song.artist.name %></h4>
         <h4>
           <% song.rating.times do %>
